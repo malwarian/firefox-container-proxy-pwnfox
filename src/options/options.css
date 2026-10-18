@@ -10,6 +10,21 @@
 @import "ProxyList.css";
 @import "select.css";
 
+.pwnfox-preset {
+    border: 1px solid var(--text-color-a30);
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+}
+
+.pwnfox-preset h2 { margin: 0 0 8px; }
+.pwnfox-preset p { margin: 8px 0; }
+.pwnfox-preset-controls { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+.pwnfox-preset-controls input { width: 110px; }
+.pwnfox-ports { font-size: 0.8em; }
+.pwnfox-status { color: #008000; }
+.pwnfox-error { color: #c50000; }
+
 
 * {
     box-sizing: border-box;

@@ -27,6 +27,8 @@ module.exports = {
   output: {
     filename: '[name]/index.js',
     path: path.resolve(__dirname, 'dist'),
+    globalObject: 'globalThis',
+    publicPath: '',
   },
   module: {
     rules: [

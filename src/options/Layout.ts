@@ -1,4 +1,4 @@
-import m, { ClassComponent, Vnode } from 'mithril'
+import m, { ClassComponent, Vnode } from './safe-mithril'
 import Navigation from './nav/Navigation'
 
 export class Layout implements ClassComponent {

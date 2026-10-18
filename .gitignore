@@ -3,6 +3,8 @@
 dist
 web-ext-artifacts
 source-artifacts
+.web-ext-artifacts
+.cache
 node_modules
 tmpProfile
 *.module.scss.d.ts

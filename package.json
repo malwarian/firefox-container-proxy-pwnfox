@@ -1,13 +1,13 @@
 {
-  "name": "container-proxy",
-  "version": "0.1.0",
-  "description": "[Firefox extension] Assign a proxy to a Firefox container [Extension page](https://addons.mozilla.org/en-US/firefox/addon/container-proxy/)",
+  "name": "container-proxy-pwnfox",
+  "version": "0.1.26",
+  "packageManager": "pnpm@7.33.7",
+  "description": "Assign local HTTP proxies to the eight default PwnFox containers in one click",
   "scripts": {
     "test": "pnpm run test:unit",
     "bundle": "web-ext -s dist build --overwrite-dest",
-    "bundle:src": "V=$(cat src/manifest.json | jq -r .version) && zip -r -X source-artifacts/container-proxy-v${V}.zip src babel.config.js LICENSE package.json package-lock.json README.md tsconfig.json webpack.config.js",
     "test:func": "pnpm run build && mocha test/functional/",
-    "test:unit": "ts-mocha --require esm test/unit/**/*.test.ts",
+    "test:unit": "ts-mocha --project tsconfig.test.json test/unit/**/*.test.ts",
     "codeStyle:check": "standardx && ts-standard",
     "codeStyle:fix": "standardx --fix && ts-standard --fix",
     "lint": "addons-linter dist",
@@ -22,14 +22,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bekh6ex/firefox-container-proxy.git"
+    "url": "git+https://github.com/malwarian/firefox-container-proxy-pwnfox.git"
   },
   "author": "Aleksei Bekh-Ivanov",
+  "contributors": [
+    "malwarian"
+  ],
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/bekh6ex/firefox-container-proxy/issues"
+    "url": "https://github.com/malwarian/firefox-container-proxy-pwnfox/issues"
   },
-  "homepage": "https://addons.mozilla.org/en-US/firefox/addon/container-proxy/",
+  "homepage": "https://github.com/malwarian/firefox-container-proxy-pwnfox",
   "dependencies": {
     "mithril": "^2.0.4",
     "preact": "^10.5.15",
@@ -41,6 +44,7 @@
     "@types/firefox-webext-browser": "^94.0.0",
     "@types/mithril": "^2.0.8",
     "@types/mocha": "^9.0.0",
+    "@types/node": "16.11.17",
     "@types/punycode": "^2.1.0",
     "@typescript-eslint/parser": "^5.3.0",
     "addons-linter": "^3.23.0",

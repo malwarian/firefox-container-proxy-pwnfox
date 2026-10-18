@@ -4,21 +4,21 @@ on:
   push:
     branches:
       - master
+  pull_request:
 
 jobs:
   test:
-    name: Test
-    uses:
-      bekh6ex/firefox-container-proxy/.github/workflows/test.yaml@master
-  tagged-release:
-    name: "Tagged Release"
-    runs-on: "ubuntu-latest"
-    needs: test
+    runs-on: ubuntu-latest
     steps:
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          draft: true
-          automatic_release_tag: "v${{ github.run_number }}"
-          files: |
-            README.md
+          version: 7.33.7
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+      - run: pnpm run build
+      - run: pnpm run lint

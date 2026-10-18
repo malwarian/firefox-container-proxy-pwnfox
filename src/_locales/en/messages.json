@@ -1,4 +1,11 @@
 {
+    "PwnFox_heading": { "message": "PwnFox quick setup" },
+    "PwnFox_description": { "message": "Create or reuse PwnFox's eight default containers and assign local HTTP proxies in color order. Existing assignments for those containers will be replaced. Keep PwnFox's own proxy switches off." },
+    "PwnFox_startPort": { "message": "First port" },
+    "PwnFox_apply": { "message": "Configure PwnFox" },
+    "PwnFox_success": { "message": "PwnFox containers and proxies configured." },
+    "PwnFox_error": { "message": "Could not configure PwnFox:" },
+    "PwnFox_invalidPort": { "message": "Enter a first port between 1 and 65528." },
     "General_extensionDescription": {
         "message": "Assign a proxy to a container",
         "description": "Description of the extension."
@@ -129,14 +136,9 @@
         "message": "Proxied request:",
         "description": "Proxied request header"
     },
-    "SupportPage_gitterInvite": {
-        "message": "If you have any questions, have a problem or just want to chat you are welcome in our channel in $GITTER_NAME$:",
-        "description": "Gitter welcome message displayed on Support page",
-        "placeholders": {
-            "GITTER_NAME": {
-                "content": "Gitter"
-            }
-        }
+    "SupportPage_contactMessage": {
+        "message": "For questions and support, contact",
+        "description": "Support contact message"
     },
     "ImportPage_heading": {
         "message": "Import proxies",

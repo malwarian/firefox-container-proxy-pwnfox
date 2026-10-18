@@ -1,4 +1,4 @@
-import m, { ClassComponent, Vnode } from 'mithril'
+import m, { ClassComponent, Vnode } from './safe-mithril'
 import { Store } from '../store/Store'
 import { ProxySettings } from '../domain/ProxySettings'
 

@@ -1,4 +1,11 @@
 {
+    "PwnFox_heading": { "message": "Configuración rápida de PwnFox" },
+    "PwnFox_description": { "message": "Crea o reutiliza los ocho contenedores predeterminados de PwnFox y asigna proxies HTTP locales en el orden de colores. Se reemplazarán las asignaciones de esos contenedores. Desactiva las opciones de proxy propias de PwnFox." },
+    "PwnFox_startPort": { "message": "Puerto inicial" },
+    "PwnFox_apply": { "message": "Configurar PwnFox" },
+    "PwnFox_success": { "message": "Contenedores y proxies de PwnFox configurados." },
+    "PwnFox_error": { "message": "No se pudo configurar PwnFox:" },
+    "PwnFox_invalidPort": { "message": "Ingresa un puerto inicial entre 1 y 65528." },
     "OptionsPage_browserTabTitle": {
         "message": "Configuración de la extensión Container Proxy",
         "description": "Title of option page"
@@ -146,14 +153,9 @@
         "message": "Usar proxy para las peticiones DNS",
         "description": "`Proxy DNS requests` field in the proxy form"
     },
-    "SupportPage_gitterInvite": {
-        "message": "Si tienes preguntas, algún problema o simplemente quieres charlar, estás invitado a nuestro canal en $GITTER_NAME$:",
-        "description": "Gitter welcome message displayed on Support page",
-        "placeholders": {
-            "GITTER_NAME": {
-                "content": "Gitter"
-            }
-        }
+    "SupportPage_contactMessage": {
+        "message": "Para consultas y soporte, contacta a",
+        "description": "Mensaje de contacto de soporte"
     },
     "ContainerList_privateBrowsingContainerName": {
         "message": "Navegación privada",

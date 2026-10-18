@@ -1,7 +1,8 @@
-import m, { Component, Vnode } from 'mithril'
+import m, { Component, Vnode } from './safe-mithril'
 import { Store } from '../store/Store'
 import ContextualIdentity = browser.contextualIdentities.ContextualIdentity
 import { ProxySettings } from '../domain/ProxySettings'
+import { configurePwnFox, DEFAULT_START_PORT, isValidStartPort, MAX_START_PORT, PWNFOX_COLORS } from './pwnfox'
 
 class ContainerListModel {
   containers: ContextualIdentity[] = []
@@ -30,6 +31,10 @@ class ContainerListModel {
 
 export class ContainerListView implements Component {
   model: ContainerListModel = new ContainerListModel()
+  startPort = String(DEFAULT_START_PORT)
+  applying = false
+  message = ''
+  error = ''
 
   async oninit (): Promise<void> {
     await this.model.loadAll()
@@ -58,7 +63,46 @@ export class ContainerListView implements Component {
       icon: 'private-browsing',
       iconUrl: ''
     }) : []
-    return m('.containers', [...items, defaultContainer, privateContainer])
+    const port = Number(this.startPort)
+    const valid = isValidStartPort(port) && this.startPort.trim() !== ''
+    const preset = m('section.pwnfox-preset', [
+      m('h2', browser.i18n.getMessage('PwnFox_heading')),
+      m('p', browser.i18n.getMessage('PwnFox_description')),
+      m('label', { for: 'pwnfox-start-port' }, browser.i18n.getMessage('PwnFox_startPort')),
+      m('div.pwnfox-preset-controls', [
+        m('input#pwnfox-start-port[type=number]', {
+          min: 1,
+          max: MAX_START_PORT,
+          step: 1,
+          value: this.startPort,
+          oninput: (event: InputEvent) => { this.startPort = (event.target as HTMLInputElement).value }
+        }),
+        m('button.button--primary[type=button]', {
+          disabled: this.applying || !valid,
+          onclick: async () => {
+            this.applying = true
+            this.message = ''
+            this.error = ''
+            try {
+              await configurePwnFox(port)
+              await this.model.loadAll()
+              this.message = browser.i18n.getMessage('PwnFox_success')
+            } catch (error) {
+              this.error = browser.i18n.getMessage('PwnFox_error') + ' ' + String(error)
+            } finally {
+              this.applying = false
+              m.redraw()
+            }
+          }
+        }, browser.i18n.getMessage('PwnFox_apply'))
+      ]),
+      m('p.pwnfox-ports', valid
+        ? PWNFOX_COLORS.map((color, index) => `${color}: ${port + index}`).join(' · ')
+        : browser.i18n.getMessage('PwnFox_invalidPort')),
+      this.message !== '' ? m('p.pwnfox-status[role=status]', this.message) : null,
+      this.error !== '' ? m('p.pwnfox-error[role=alert]', this.error) : null
+    ])
+    return m('.containers', [preset, ...items, defaultContainer, privateContainer])
   }
 
   renderSelectProxy (cookieStoreId: string, proxyId: string): Vnode {

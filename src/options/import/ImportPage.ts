@@ -1,4 +1,4 @@
-import m, { Component, Vnode } from 'mithril'
+import m, { Component, Vnode } from '../safe-mithril'
 
 import FoxyProxyConverter from './FoxyProxyConverter'
 import { uuidv4 } from '../util'

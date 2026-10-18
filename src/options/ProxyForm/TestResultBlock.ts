@@ -4,7 +4,7 @@ import {
   SettingsErrorResult,
   SuccessfulTestResult, TestResult
 } from './testProxySettings'
-import m, { Component, Vnode } from 'mithril'
+import m, { Component, Vnode } from '../safe-mithril'
 
 const t = browser.i18n.getMessage
 

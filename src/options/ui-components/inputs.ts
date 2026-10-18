@@ -1,4 +1,4 @@
-import m, { Component, Vnode } from 'mithril'
+import m, { Component, Vnode } from '../safe-mithril'
 import { uuidv4 } from '../util'
 
 export interface Props<ValueType> {

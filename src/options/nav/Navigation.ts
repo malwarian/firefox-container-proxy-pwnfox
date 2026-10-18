@@ -1,4 +1,4 @@
-import m, { ClassComponent, FactoryComponent, Vnode } from 'mithril'
+import m, { ClassComponent, FactoryComponent, Vnode } from '../safe-mithril'
 import s from './Navigation.module.scss'
 
 class Navigation implements ClassComponent {

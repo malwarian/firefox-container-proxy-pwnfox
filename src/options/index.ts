@@ -1,5 +1,5 @@
 import { Store } from '../store/Store'
-import m from 'mithril'
+import m from './safe-mithril'
 import { Layout } from './Layout'
 import { ContainerListView } from './ContainerListView'
 import { ProxyList } from './ProxyList'

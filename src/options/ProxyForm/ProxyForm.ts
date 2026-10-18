@@ -1,4 +1,4 @@
-import m, { Vnode } from 'mithril'
+import m, { Vnode } from '../safe-mithril'
 import { uuidv4 } from '../util'
 import { proxyTypes } from '../constants'
 import { SettingsToTest, testProxySettings, TestResult } from './testProxySettings'

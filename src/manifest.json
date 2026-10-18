@@ -1,13 +1,16 @@
 {
   "manifest_version": 2,
-  "name": "Container proxy",
-  "version": "0.1.22",
+  "name": "Container Proxy for PwnFox",
+  "version": "0.1.26",
   "description": "__MSG_General_extensionDescription__",
   "default_locale": "en",
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
-      "id": "contaner-proxy@bekh-ivanov.me",
-      "strict_min_version": "91.1.0"
+      "id": "container-proxy-pwnfox@malwarian.github.io",
+      "data_collection_permissions": {
+        "required": ["none"]
+      },
+      "strict_min_version": "142.0"
     }
   },
   "browser_action": {
